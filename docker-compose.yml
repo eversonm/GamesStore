@@ -1,0 +1,42 @@
+version: '3.1'
+
+services:
+  postgres:
+    container_name: postgresGames
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: "Pos1ba29se564"
+      POSTGRES_DB: "games"
+    ports:
+      - "25432:5432"
+
+  api:
+    container_name: gamestore
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/api
+    restart: unless-stopped
+    command: >
+      sh -c "flask --app pspython db upgrade && 
+              gunicorn --bind 0.0.0.0:5000 'pspython:create_app()'"
+    depends_on:
+      - postgres
+
+  app:
+    container_name: reactwebapp
+    build: 
+      context: ./frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    restart: unless-stopped
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
+    depends_on:
+      - api

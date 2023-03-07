@@ -1,0 +1,19 @@
+.form-control {
+  margin: 1rem 0;
+}
+
+.checks {
+  accent-color: seagreen;
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.checks input {
+  font: inherit;
+  border: 1px solid #ccc;
+  margin: 0.5rem;
+}

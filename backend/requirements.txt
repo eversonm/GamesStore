@@ -1,0 +1,11 @@
+flask
+flask-smorest
+flask-cors
+sqlalchemy
+flask-sqlalchemy
+flask-jwt-extended
+passlib
+flask-migrate
+pytest
+gunicorn
+psycopg2-binary

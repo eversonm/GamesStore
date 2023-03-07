@@ -1,0 +1,45 @@
+.prods {
+  max-width: 60rem;
+  width: 50%;
+  margin: 0 auto;
+  animation: prods-appear 1s ease-out forwards;
+}
+
+.ProdsLoading {
+  text-align: center;
+  color: white;
+}
+
+.ProdsError {
+  text-align: center;
+  color: red;
+}
+
+.prods ul {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: 0 auto; */
+  gap: 2rem;
+}
+
+.card {
+  max-width: 50rem;
+  width: 90%;
+}
+
+.prods-content-detail {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+@keyframes prods-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
